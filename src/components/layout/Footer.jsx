@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
   ArrowUp,
   Facebook,
   Twitter,
@@ -12,56 +12,56 @@ import {
   Globe,
   FileText,
   Shield,
-  Award
-} from 'lucide-react';
+  Award,
+} from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const footerLinks = {
     company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Our Story', href: '#' },
-      { name: 'Careers', href: '#' },
-      { name: 'News & Media', href: '#' },
-      { name: 'Investor Relations', href: '#' }
+      { name: "About Us", href: "#about" },
+      { name: "Our Story", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "News & Media", href: "#" },
+      { name: "Investor Relations", href: "#" },
     ],
     products: [
-      { name: 'Pharmaceutical', href: '#' },
-      { name: 'Agricultural', href: '#' },
-      { name: 'Industrial', href: '#' },
-      { name: 'Research Chemicals', href: '#' },
-      { name: 'Custom Synthesis', href: '#' }
+      { name: "Construction", href: "#" },
+      { name: "Agricultural", href: "#" },
+      { name: "Industrial", href: "#" },
+      { name: "Research Chemicals", href: "#" },
+      { name: "Custom Synthesis", href: "#" },
     ],
     services: [
-      { name: 'Quality Control', href: '#' },
-      { name: 'Technical Support', href: '#' },
-      { name: 'Regulatory Affairs', href: '#' },
-      { name: 'Supply Chain', href: '#' },
-      { name: 'R&D Collaboration', href: '#' }
+      { name: "Quality Control", href: "#" },
+      { name: "Technical Support", href: "#" },
+      { name: "Regulatory Affairs", href: "#" },
+      { name: "Supply Chain", href: "#" },
+      { name: "R&D Collaboration", href: "#" },
     ],
     resources: [
-      { name: 'Documentation', href: '#' },
-      { name: 'Safety Data Sheets', href: '#' },
-      { name: 'Technical Papers', href: '#' },
-      { name: 'Case Studies', href: '#' },
-      { name: 'Downloads', href: '#' }
-    ]
+      { name: "Documentation", href: "#" },
+      { name: "Safety Data Sheets", href: "#" },
+      { name: "Technical Papers", href: "#" },
+      { name: "Case Studies", href: "#" },
+      { name: "Downloads", href: "#" },
+    ],
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', color: 'hover:text-blue-600' },
-    { icon: Twitter, href: '#', color: 'hover:text-sky-500' },
-    { icon: Linkedin, href: '#', color: 'hover:text-blue-700' },
-    { icon: Instagram, href: '#', color: 'hover:text-pink-600' }
+    { icon: Facebook, href: "#", color: "hover:text-blue-600" },
+    { icon: Twitter, href: "#", color: "hover:text-sky-500" },
+    { icon: Linkedin, href: "#", color: "hover:text-blue-700" },
+    { icon: Instagram, href: "#", color: "hover:text-pink-600" },
   ];
 
   const certifications = [
-    { icon: Award, text: 'ISO 9001:2015' },
-    { icon: Shield, text: 'REACH Compliant' },
-    { icon: FileText, text: 'GMP Certified' }
+    { icon: Award, text: "ISO 9001:2015" },
+    { icon: Shield, text: "REACH Compliant" },
+    { icon: FileText, text: "GMP Certified" },
   ];
 
   return (
@@ -78,15 +78,15 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <div className="flex items-center mb-4">
-                <img 
-                  src="/images/COZ_CHEM.png" 
-                  alt="COZ CHEM Logo" 
-                  className="h-12 w-auto max-w-48"
+                <img
+                  src="/images/COZ_CHEM.png"
+                  alt="COZ CHEM Logo"
+                  className="h-10 w-auto max-w-48"
                 />
               </div>
-              
+
               <p className="text-gray-300 leading-relaxed">
-                Leading the future of specialty chemicals with innovative solutions and quality excellence.
+                Leaders in Specialty Chemicals.
               </p>
 
               {/* Social Links */}
@@ -117,9 +117,13 @@ const Footer = () => {
               className="space-y-4"
             >
               <h3 className="text-lg font-semibold text-white capitalize mb-4">
-                {section === 'company' ? 'Company' : 
-                 section === 'products' ? 'Products' : 
-                 section === 'services' ? 'Services' : 'Resources'}
+                {section === "company"
+                  ? "Company"
+                  : section === "products"
+                  ? "Products"
+                  : section === "services"
+                  ? "Services"
+                  : "Resources"}
               </h3>
               <ul className="space-y-2">
                 {links.map((link, linkIndex) => (
@@ -151,14 +155,18 @@ const Footer = () => {
               {certifications.map((cert, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <cert.icon className="w-4 h-4 text-brand-green" />
-                  <span className="text-gray-300 text-sm font-medium">{cert.text}</span>
+                  <span className="text-gray-300 text-sm font-medium">
+                    {cert.text}
+                  </span>
                 </div>
               ))}
             </div>
-            
+
             <div className="flex items-center space-x-2">
               <Globe className="w-4 h-4 text-brand-blue" />
-              <span className="text-gray-300 text-sm">Serving 50+ Countries</span>
+              <span className="text-gray-300 text-sm">
+                Serving 50+ Countries
+              </span>
             </div>
           </div>
         </motion.div>
@@ -171,9 +179,24 @@ const Footer = () => {
                 © 2024 COZ CHEM. All rights reserved.
               </p>
               <div className="flex space-x-4 text-xs">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Terms of Service
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Cookie Policy
+                </a>
               </div>
             </div>
 

@@ -1,23 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { 
-  FlaskRound, 
-  Leaf, 
-  Pill, 
-  Factory, 
-  Beaker, 
-  Microscope, 
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  FlaskRound,
+  Leaf,
+  Pill,
+  Factory,
+  Beaker,
+  Microscope,
   ArrowRight,
   Star,
   Shield,
-  Zap
-} from 'lucide-react';
+  Zap,
+} from "lucide-react";
 
 const Products = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   const containerVariants = {
@@ -26,9 +26,9 @@ const Products = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -36,78 +36,98 @@ const Products = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const products = [
     {
       id: 1,
-      title: 'Pharmaceutical Intermediates',
-      description: 'High-purity chemical compounds for drug manufacturing and pharmaceutical research.',
+      title: "Construction Chemicals",
+      description:
+        "High-purity chemical compounds for construction manufacturing and research.",
       icon: Pill,
-      color: 'brand-blue',
-      image: '/product_img/Pharmaceutical Intermediates.jpg',
-      features: ['GMP Certified', '99.9% Purity', 'Custom Synthesis'],
-      stats: { clients: '200+', compounds: '500+' }
+      color: "brand-blue",
+      image: "/product_img/Pharmaceutical Intermediates.jpg",
+      features: ["GMP Certified", "99.9% Purity", "Custom Synthesis"],
+      stats: { clients: "200+", compounds: "500+" },
     },
     {
       id: 2,
-      title: 'Agricultural Chemicals',
-      description: 'Innovative crop protection and nutrition solutions for sustainable agriculture.',
+      title: "Agricultural Chemicals",
+      description:
+        "Innovative crop protection and nutrition solutions for sustainable agriculture.",
       icon: Leaf,
-      color: 'brand-green',
-      image: '/product_img/Agricultural Chemicals.jpeg',
-      features: ['Eco-Friendly', 'High Efficacy', 'Crop Specific'],
-      stats: { coverage: '1M+ acres', products: '50+' }
+      color: "brand-green",
+      image: "/product_img/Agricultural Chemicals.jpeg",
+      features: ["Eco-Friendly", "High Efficacy", "Crop Specific"],
+      stats: { coverage: "1M+ acres", products: "50+" },
     },
     {
       id: 3,
-      title: 'Industrial Catalysts',
-      description: 'Advanced catalytic solutions for manufacturing and chemical processing.',
+      title: "Industrial Catalysts",
+      description:
+        "Advanced catalytic solutions for manufacturing and chemical processing.",
       icon: Factory,
-      color: 'brand-orange',
-      image: '/product_img/Industrial Catalysts.jpg',
-      features: ['Enhanced Efficiency', 'Long-lasting', 'Cost-Effective'],
-      stats: { industries: '25+', efficiency: '40%+' }
+      color: "brand-orange",
+      image: "/product_img/Industrial Catalysts.jpg",
+      features: ["Enhanced Efficiency", "Long-lasting", "Cost-Effective"],
+      stats: { industries: "25+", efficiency: "40%+" },
     },
     {
       id: 4,
-      title: 'Research Chemicals',
-      description: 'Pure compounds and reagents for academic and industrial research.',
+      title: "Customized Chemicals",
+      description:
+        "Pure compounds and reagents for academic and industrial research.",
       icon: Microscope,
-      color: 'brand-blue',
-      image: '/product_img/Research Chemicals.jpg',
-      features: ['Research Grade', 'Documentation', 'Quick Delivery'],
-      stats: { universities: '100+', compounds: '1000+' }
-    }
+      color: "brand-blue",
+      image: "/product_img/Research Chemicals.jpg",
+      features: ["Research Grade", "Documentation", "Quick Delivery"],
+      stats: { universities: "100+", compounds: "1000+" },
+    },
   ];
 
   const services = [
     {
-      title: 'Custom Synthesis',
-      description: 'Tailored chemical synthesis services for unique molecular requirements.',
+      title: "Custom Synthesis",
+      description:
+        "Tailored chemical synthesis services for unique molecular requirements.",
       icon: FlaskRound,
-      highlights: ['Scale-up Support', 'Quality Assurance', 'Timeline Guarantee']
+      highlights: [
+        "Scale-up Support",
+        "Product Innovation",
+        "Timeline Guarantee",
+      ],
     },
     {
-      title: 'Quality Control',
-      description: 'Comprehensive testing and validation services for chemical products.',
+      title: "Quality Assurance",
+      description:
+        "Comprehensive testing and validation services for chemical products.",
       icon: Shield,
-      highlights: ['Advanced Analytics', 'Regulatory Compliance', 'Certificate of Analysis']
+      highlights: [
+        "Advanced Analytics",
+        "Certificate of Analysis",
+        "Regulatory Compliance",
+      ],
     },
     {
-      title: 'Process Optimization',
-      description: 'Efficiency improvements and cost reduction for chemical processes.',
+      title: "Process Optimization",
+      description:
+        "Efficiency improvements and cost reduction for chemical processes.",
       icon: Zap,
-      highlights: ['Yield Enhancement', 'Cost Reduction', 'Environmental Impact']
+      highlights: [
+        "Cost Reduction",
+        "Yield Enhancement",
+        "Environmental Impact",
+      ],
     },
     {
-      title: 'R&D Collaboration',
-      description: 'Joint research programs for breakthrough chemical innovations.',
+      title: "R&D Collaboration",
+      description:
+        "Joint research programs for breakthrough chemical innovations.",
       icon: Beaker,
-      highlights: ['Expert Team', 'State-of-art Facility', 'IP Protection']
-    }
+      highlights: ["Expert Team", "IP Protection", "State-of-art Facility"],
+    },
   ];
 
   return (
@@ -121,22 +141,28 @@ const Products = () => {
           className="space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-medium mb-4">
+          <motion.div
+            variants={itemVariants}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <div className="inline-flex items-center px-4 py-2 bg-brand-blue/10 text-brand-blue rounded-full text-sm font-medium mb-4">
               Our Products & Services
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Chemical 
+              Comprehensive Chemical
               <span className="text-black"> Solutions</span>
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              From pharmaceuticals to agriculture, we provide industry-leading 
+              From construction to agriculture, we provide industry-leading
               chemical products and services that drive innovation and growth.
             </p>
           </motion.div>
 
           {/* Products Grid */}
-          <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            variants={itemVariants}
+            className="grid md:grid-cols-2 gap-8"
+          >
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -145,18 +171,22 @@ const Products = () => {
               >
                 {/* Product Image/Icon */}
                 <div className="h-48 bg-gray-50 relative overflow-hidden">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-6 left-6">
-                    <div className={`w-16 h-16 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <product.icon className={`w-8 h-8 text-${product.color}`} />
+                    <div
+                      className={`w-16 h-16 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <product.icon
+                        className={`w-8 h-8 text-${product.color}`}
+                      />
                     </div>
                   </div>
-                  
+
                   {/* Floating stats */}
                   <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 min-w-[120px]">
@@ -164,7 +194,9 @@ const Products = () => {
                         {Object.entries(product.stats).map(([key, value]) => (
                           <div key={key} className="flex justify-between">
                             <span className="capitalize">{key}:</span>
-                            <span className="font-semibold text-gray-900">{value}</span>
+                            <span className="font-semibold text-gray-900">
+                              {value}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -174,21 +206,30 @@ const Products = () => {
                   {/* Animated molecules */}
                   <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
                     <motion.div
-                      animate={{ 
+                      animate={{
                         rotate: [0, 360],
                         x: [0, 20, 0],
-                        y: [0, -20, 0]
+                        y: [0, -20, 0],
                       }}
-                      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                       className={`absolute top-1/2 right-1/4 w-6 h-6 bg-${product.color} rounded-full`}
                     />
                     <motion.div
-                      animate={{ 
+                      animate={{
                         rotate: [360, 0],
                         x: [0, -15, 0],
-                        y: [0, 15, 0]
+                        y: [0, 15, 0],
                       }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear", delay: 2 }}
+                      transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: 2,
+                      }}
                       className={`absolute bottom-1/3 left-1/3 w-4 h-4 bg-${product.color} rounded-full`}
                     />
                   </div>
@@ -240,8 +281,8 @@ const Products = () => {
                 Professional <span className="text-black">Services</span>
               </h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Beyond products, we offer comprehensive services to support your chemical needs 
-                from concept to commercialization.
+                Beyond products, we also offer comprehensive services to support
+                your chemical needs from concept to commercialization.
               </p>
             </div>
 
@@ -256,7 +297,7 @@ const Products = () => {
                     <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center transition-colors">
                       <service.icon className="w-6 h-6 text-brand-green" />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <h4 className="text-lg font-semibold text-black transition-colors">
                         {service.title}
@@ -268,7 +309,10 @@ const Products = () => {
 
                     <div className="space-y-2">
                       {service.highlights.map((highlight, highlightIndex) => (
-                        <div key={highlightIndex} className="flex items-center text-xs text-gray-500">
+                        <div
+                          key={highlightIndex}
+                          className="flex items-center text-xs text-gray-500"
+                        >
                           <div className="w-1.5 h-1.5 bg-brand-green rounded-full mr-2 transition-transform"></div>
                           {highlight}
                         </div>
@@ -281,7 +325,7 @@ const Products = () => {
           </motion.div>
 
           {/* CTA Section */}
-          <motion.div 
+          {/* <motion.div
             variants={itemVariants}
             className="accent-card-blue rounded-2xl p-12 text-center"
           >
@@ -289,8 +333,8 @@ const Products = () => {
               Need Custom Chemical Solutions?
             </h3>
             <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-              Our team of experts is ready to develop tailored solutions for your specific requirements. 
-              Let's discuss your project today.
+              Our team of experts is ready to develop tailored solutions for
+              your specific requirements. Let's discuss your project today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
@@ -308,7 +352,7 @@ const Products = () => {
                 Schedule Consultation
               </motion.button>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

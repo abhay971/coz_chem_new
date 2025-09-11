@@ -66,13 +66,7 @@ const Header = () => {
                         href="#"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
                       >
-                        Industrial Chemicals
-                      </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
-                      >
-                        Pharmaceutical
+                        Industrial
                       </a>
                       <a
                         href="#"
@@ -84,7 +78,13 @@ const Header = () => {
                         href="#"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
                       >
-                        Research Chemicals
+                        Construction
+                      </a>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
+                      >
+                        Customized Chemicals
                       </a>
                     </div>
                   </div>
