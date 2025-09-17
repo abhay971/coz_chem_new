@@ -12,6 +12,7 @@ import {
   Star,
   Shield,
   Zap,
+  Building2,
 } from "lucide-react";
 
 const Products = () => {
@@ -43,14 +44,14 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      title: "Construction Chemicals",
+      title: "Industrial Chemicals",
       description:
-        "High-purity chemical compounds for construction manufacturing and research.",
-      icon: Pill,
-      color: "brand-blue",
-      image: "/product_img/Pharmaceutical Intermediates.jpg",
-      features: ["GMP Certified", "99.9% Purity", "Custom Synthesis"],
-      stats: { clients: "200+", compounds: "500+" },
+        "Advanced catalytic solutions for manufacturing and chemical processing.",
+      icon: Factory,
+      color: "brand-orange",
+      image: "/product_img/Industrial Catalysts.jpg",
+      features: ["Enhanced Efficiency", "Long-lasting", "Cost-Effective"],
+      stats: { industries: "25+", efficiency: "40%+" },
     },
     {
       id: 2,
@@ -65,25 +66,25 @@ const Products = () => {
     },
     {
       id: 3,
-      title: "Industrial Catalysts",
+      title: "Construction Chemicals",
       description:
-        "Advanced catalytic solutions for manufacturing and chemical processing.",
-      icon: Factory,
-      color: "brand-orange",
-      image: "/product_img/Industrial Catalysts.jpg",
-      features: ["Enhanced Efficiency", "Long-lasting", "Cost-Effective"],
-      stats: { industries: "25+", efficiency: "40%+" },
+        "Durable concrete additives, sealants, and specialty chemicals for construction projects.",
+      icon: Building2,
+      color: "brand-blue",
+      image: "/product_img/Research Chemicals.png",
+      features: ["Weather Resistant", "High Strength", "Quick Setting"],
+      stats: { projects: "500+", structures: "1000+" },
     },
     {
       id: 4,
-      title: "Customized Chemicals",
+      title: "Pharmaceutical Chemicals",
       description:
-        "Pure compounds and reagents for academic and industrial research.",
-      icon: Microscope,
-      color: "brand-blue",
-      image: "/product_img/Research Chemicals.jpg",
-      features: ["Research Grade", "Documentation", "Quick Delivery"],
-      stats: { universities: "100+", compounds: "1000+" },
+        "High-grade pharmaceutical intermediates and API compounds for drug manufacturing.",
+      icon: Pill,
+      color: "brand-purple",
+      image: "/product_img/Pharmaceutical Intermediates.jpg",
+      features: ["FDA Compliant", "USP Grade", "Batch Certification"],
+      stats: { pharma: "50+", apis: "200+" },
     },
   ];
 
@@ -149,12 +150,12 @@ const Products = () => {
               Our Products & Services
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Chemical
-              <span className="text-black"> Solutions</span>
+              Comprehensive Chemical Portfolio
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              From construction to agriculture, we provide industry-leading
-              chemical products and services that drive innovation and growth.
+              From industrial to agricultural and construction to
+              pharmaceutical, we provide best-in-the-class chemical products and
+              services that drive innovation and growth.
             </p>
           </motion.div>
 

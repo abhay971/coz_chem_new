@@ -23,31 +23,26 @@ const Footer = () => {
   const footerLinks = {
     company: [
       { name: "About Us", href: "#about" },
-      { name: "Our Story", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "News & Media", href: "#" },
-      { name: "Investor Relations", href: "#" },
+      { name: "Our Features", href: "#features" },
+      { name: "Contact Us", href: "#contact" },
     ],
     products: [
-      { name: "Construction", href: "#" },
-      { name: "Agricultural", href: "#" },
-      { name: "Industrial", href: "#" },
-      { name: "Research Chemicals", href: "#" },
-      { name: "Custom Synthesis", href: "#" },
+      { name: "Industrial Chemicals", href: "#products" },
+      { name: "Agricultural Chemicals", href: "#products" },
+      { name: "Construction Chemicals", href: "#products" },
+      { name: "Pharmaceutical Chemicals", href: "#products" },
     ],
     services: [
-      { name: "Quality Control", href: "#" },
-      { name: "Technical Support", href: "#" },
-      { name: "Regulatory Affairs", href: "#" },
-      { name: "Supply Chain", href: "#" },
-      { name: "R&D Collaboration", href: "#" },
+      { name: "Custom Synthesis", href: "#products" },
+      { name: "Quality Assurance", href: "#products" },
+      { name: "Process Optimization", href: "#products" },
+      { name: "R&D Collaboration", href: "#products" },
     ],
-    resources: [
-      { name: "Documentation", href: "#" },
-      { name: "Safety Data Sheets", href: "#" },
-      { name: "Technical Papers", href: "#" },
-      { name: "Case Studies", href: "#" },
-      { name: "Downloads", href: "#" },
+    support: [
+      { name: "Quality Standards", href: "#features" },
+      { name: "Global Reach", href: "#features" },
+      { name: "Customer Support", href: "#contact" },
+      { name: "Technical Assistance", href: "#contact" },
     ],
   };
 
@@ -59,9 +54,16 @@ const Footer = () => {
   ];
 
   const certifications = [
-    { icon: Award, text: "ISO 9001:2015" },
-    { icon: Shield, text: "REACH Compliant" },
-    { icon: FileText, text: "GMP Certified" },
+    { icon: Award, text: "ISO 9001" },
+    { icon: Award, text: "ISO 14001" },
+    { icon: Award, text: "ISO 22000" },
+    { icon: Award, text: "ISO 45001" },
+    { icon: Shield, text: "cGMP" },
+    { icon: FileText, text: "State FDA" },
+    { icon: FileText, text: "USFDA" },
+    { icon: FileText, text: "EDQM" },
+    { icon: Shield, text: "ANVISA" },
+    { icon: Award, text: "FSSAI" },
   ];
 
   return (
@@ -85,19 +87,19 @@ const Footer = () => {
                 />
               </div>
 
-              <p className="text-gray-300 leading-relaxed">
-                Leaders in Specialty Chemicals.
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Club of Chemical Producers
               </p>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 justify-start">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-colors duration-300`}
+                    className={`w-11 h-11 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:bg-gray-700 hover:scale-110`}
                   >
                     <social.icon className="w-5 h-5" />
                   </motion.a>
@@ -123,7 +125,7 @@ const Footer = () => {
                   ? "Products"
                   : section === "services"
                   ? "Services"
-                  : "Resources"}
+                  : "Support"}
               </h3>
               <ul className="space-y-2">
                 {links.map((link, linkIndex) => (

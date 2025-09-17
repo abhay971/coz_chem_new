@@ -43,7 +43,7 @@ const About = () => {
       label: "Years of Excellence",
       color: "brand-orange",
     },
-    { icon: Users, value: "200+", label: "Expert Team", color: "brand-blue" },
+    { icon: Users, value: "100+", label: "Manufacturers", color: "brand-blue" },
     {
       icon: Globe,
       value: "50+",
@@ -104,8 +104,7 @@ const About = () => {
               About COZ CHEM
             </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-              Leaders in
-              <span className="text-black"> Specialty Chemicals</span>
+              Club of Chemical Producers
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-0">
               With over two decades of expertise, we deliver innovative chemical
@@ -155,7 +154,7 @@ const About = () => {
                   {[
                     "Global supply chain with local expertise",
                     "Environmental sustainability at our core",
-                    "ISO 9001:2015 certified quality management systems",
+                    "ISO 9001, 14001, 22000, 45001, cGMP, State FDA, USFDA, EDQM, ANVISA, FSSAI certified quality management systems",
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <CheckCircle className="w-6 h-6 text-brand-green mt-0.5 flex-shrink-0" />
@@ -179,9 +178,10 @@ const About = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 leading-relaxed">
-                  Our solutions serve companies worldwide, contributing to
-                  breakthrough innovations across construction, agricultural,
-                  and industrial sectors.
+                  Our Chemicals empower companies worldwide, driving
+                  breakthrough innovations across the industrial, agricultural,
+                  construction and pharmaceutical sectors with cutting edge
+                  technology and sustainable solutions.
                 </p>
               </motion.div>
             </motion.div>

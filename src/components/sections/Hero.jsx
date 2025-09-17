@@ -61,9 +61,9 @@ const Hero = () => {
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-                Delivering innovative specialty chemical solutions that drive
-                progress across industries. From construction to agriculture, we
-                power the future with precision chemistry.
+                Delivering innovative specialty chemicals that drive progress
+                across industries. From industrial to agricultural, construction
+                to pharmaceutical. We power the future with precision chemistry.
               </p>
             </motion.div>
 
@@ -126,17 +126,18 @@ const Hero = () => {
               {/* Main circular element representing molecules */}
               <div className="relative w-96 h-96 mx-auto">
                 {/* Central molecule */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0 border-4 border-brand-blue/30 rounded-full flex items-center justify-center"
-                >
-                  <div className="w-20 h-20 bg-brand-blue rounded-full shadow-lg"></div>
-                </motion.div>
+                <div className="absolute inset-0 border-4 border-brand-blue/30 rounded-full flex items-center justify-center">
+                  <div className="w-40 h-40 flex items-center justify-center">
+                    <img
+                      src="/hero/benzene_structure_icon_final.png"
+                      alt="Benzene molecule"
+                      width="150"
+                      height="150"
+                      className="object-contain bg-transparent"
+                      style={{ backgroundColor: 'transparent', mixBlendMode: 'multiply' }}
+                    />
+                  </div>
+                </div>
 
                 {/* Orbiting elements */}
                 <motion.div

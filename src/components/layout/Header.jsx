@@ -84,6 +84,12 @@ const Header = () => {
                         href="#"
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
                       >
+                        Pharmaceutical
+                      </a>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
+                      >
                         Customized Chemicals
                       </a>
                     </div>
