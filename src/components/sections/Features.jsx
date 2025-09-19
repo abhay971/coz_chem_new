@@ -45,7 +45,7 @@ const Features = () => {
       icon: Shield,
       title: "Quality Assurance",
       description:
-        "ISO 9001:2015 processes ensure the highest quality standards in every product delivered.",
+        "ISO 9001 processes ensure the highest quality standards in every product delivered.",
       color: "brand-orange",
       stats: "99.9% Approval Rate",
       benefits: [
