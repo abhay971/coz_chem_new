@@ -45,7 +45,7 @@ const Features = () => {
       icon: Shield,
       title: "Quality Assurance",
       description:
-        "ISO 9001 processes ensure the highest quality standards in every product delivered.",
+        "QMS processes ensure the highest quality standards in every product delivered.",
       color: "brand-orange",
       stats: "99.9% Approval Rate",
       benefits: [
@@ -127,7 +127,7 @@ const Features = () => {
           {/* Section Header */}
           <motion.div
             variants={itemVariants}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-5xl mx-auto"
           >
             <div className="inline-flex items-center px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-medium mb-4">
               Performance Parameters
@@ -137,8 +137,8 @@ const Features = () => {
               <span className="text-black"> Success</span>
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-0">
-              Our Specialty Chemical solutions combined with cutting-edge
-              technology delivers exceptional results for our Customers.
+              Our Chemicals combined with cutting-edge technology delivers
+              exceptional results for our Customers.
             </p>
           </motion.div>
 

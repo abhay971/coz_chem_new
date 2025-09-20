@@ -282,8 +282,8 @@ const Products = () => {
                 Professional <span className="text-black">Services</span>
               </h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Beyond products, we also offer comprehensive services to support
-                your chemical needs from concept to commercialization.
+                Beyond products, we also offer services to support your chemical
+                needs from conceptualization to commercialization.
               </p>
             </div>
 
