@@ -7,14 +7,14 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId.replace('#', ''));
+    const element = document.getElementById(sectionId.replace("#", ""));
     if (element) {
       const headerHeight = 80; // Account for fixed header
       const elementPosition = element.offsetTop - headerHeight;
 
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setIsOpen(false); // Close mobile menu if open
@@ -65,7 +65,7 @@ const Header = () => {
                 className="h-12 w-auto"
               />
               <span className="text-sm text-gray-600 mt-1 font-medium tracking-wide">
-                Club of Chemical Producers
+                CLUB of Chemical Producers
               </span>
             </div>
           </motion.div>
