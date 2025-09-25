@@ -198,7 +198,7 @@ const Footer = () => {
               </span>
             </div>
             <div className="flex items-center space-x-2">
-              <span className="text-white text-xl font-bold">A</span>
+              <span className="text-white text-2xl font-bold">A</span>
               <motion.a
                 href="https://www.cozclub.com"
                 target="_blank"
@@ -212,7 +212,7 @@ const Footer = () => {
                   className="h-8 w-auto"
                 />
               </motion.a>
-              <span className="text-white text-xl font-bold">Company</span>
+              <span className="text-white text-2xl font-bold">Company</span>
             </div>
           </div>
         </motion.div>
