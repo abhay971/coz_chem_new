@@ -104,7 +104,7 @@ const About = () => {
               About COZ CHEM
             </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-              Club of Chemical Producers
+              CLUB of Chemical Producers
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-0">
               We deliver innovative chemicals that power global industries.

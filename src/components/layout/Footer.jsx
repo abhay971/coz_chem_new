@@ -21,14 +21,14 @@ const Footer = () => {
   };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId.replace('#', ''));
+    const element = document.getElementById(sectionId.replace("#", ""));
     if (element) {
       const headerHeight = 80; // Account for fixed header
       const elementPosition = element.offsetTop - headerHeight;
 
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -92,7 +92,7 @@ const Footer = () => {
               </div>
 
               <p className="text-gray-300 leading-relaxed font-bold mb-6">
-                Club of Chemical Producers
+                CLUB of Chemical Producers
               </p>
             </motion.div>
           </div>
