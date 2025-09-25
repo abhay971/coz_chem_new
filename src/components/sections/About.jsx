@@ -74,7 +74,7 @@ const About = () => {
     {
       title: "Reliability",
       description:
-        "Building long-term relationships with clients through trust and reliability.",
+        "Building long-term relationships with clients through trust and timely delivery.",
       icon: Users,
     },
     {
@@ -107,8 +107,7 @@ const About = () => {
               Club of Chemical Producers
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-0">
-              With over two decades of expertise, we deliver innovative
-              chemicals that power global industries.
+              We deliver innovative chemicals that power global industries.
             </p>
           </motion.div>
 
@@ -146,8 +145,8 @@ const About = () => {
               <div className="space-y-6">
                 <p className="text-lg text-gray-800 leading-relaxed">
                   We specialize in developing custom chemicals that meet the
-                  unique needs of our clients across construction, agricultural,
-                  and industrial sectors.
+                  unique needs of our clients across industrial, agricultural,
+                  construction and pharmaceutical sectors to name a few.
                 </p>
 
                 <div className="space-y-4">

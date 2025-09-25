@@ -6,6 +6,20 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId.replace('#', ''));
+    if (element) {
+      const headerHeight = 80; // Account for fixed header
+      const elementPosition = element.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsOpen(false); // Close mobile menu if open
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -19,8 +33,16 @@ const Header = () => {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Products", href: "#products", hasDropdown: true },
-    { name: "Services", href: "#services" },
+    { name: "Features", href: "#features" },
     { name: "Contact", href: "#contact" },
+  ];
+
+  const productCategories = [
+    { name: "Industrial", href: "#products" },
+    { name: "Agricultural", href: "#products" },
+    { name: "Construction", href: "#products" },
+    { name: "Pharmaceutical", href: "#products" },
+    { name: "Customized Chemicals", href: "#products" },
   ];
 
   return (
@@ -36,12 +58,15 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
-            <div className="flex items-center">
+            <div className="flex flex-col items-start">
               <img
                 src="/images/COZ_CHEM_BLACK.png"
                 alt="COZ CHEM Logo"
                 className="h-12 w-auto"
               />
+              <span className="text-sm text-gray-600 mt-1 font-medium tracking-wide">
+                Club of Chemical Producers
+              </span>
             </div>
           </motion.div>
 
@@ -49,49 +74,28 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
-                <a
-                  href={item.href}
+                <button
+                  onClick={() => scrollToSection(item.href)}
                   className="flex items-center text-gray-700 hover:text-brand-orange transition-colors duration-200 font-medium"
                 >
                   {item.name}
                   {item.hasDropdown && (
                     <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
                   )}
-                </a>
+                </button>
 
                 {item.hasDropdown && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-2">
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
-                      >
-                        Industrial
-                      </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
-                      >
-                        Agricultural
-                      </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
-                      >
-                        Construction
-                      </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
-                      >
-                        Pharmaceutical
-                      </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
-                      >
-                        Customized Chemicals
-                      </a>
+                      {productCategories.map((category) => (
+                        <button
+                          key={category.name}
+                          onClick={() => scrollToSection(category.href)}
+                          className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange"
+                        >
+                          {category.name}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -100,7 +104,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="hidden md:block bg-brand-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-blue transition-colors duration-200"
@@ -108,13 +112,13 @@ const Header = () => {
             Get Quote
           </motion.button>
 
-          {/* Mobile Menu Button */}
+      
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-gray-700 hover:text-brand-orange"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          </button> */}
         </div>
 
         {/* Mobile Menu */}
@@ -126,14 +130,13 @@ const Header = () => {
         >
           <div className="py-4 space-y-4">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-200"
+                onClick={() => scrollToSection(item.href)}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-200"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <div className="px-4 pt-2">
               <button className="w-full bg-brand-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">

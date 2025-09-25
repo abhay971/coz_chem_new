@@ -77,7 +77,7 @@ const Hero = () => {
                   boxShadow: "0 10px 25px rgba(243, 126, 58, 0.3)",
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center px-8 py-4 bg-brand-orange text-white font-semibold rounded-xl  transition-all duration-300"
+                className="group inline-flex items-center px-8 py-4 bg-brand-orange/30 text-white font-semibold rounded-xl  transition-all duration-300"
               >
                 Explore Solutions
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -149,10 +149,41 @@ const Hero = () => {
                   }}
                   className="absolute inset-0"
                 >
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-brand-orange rounded-full shadow-lg"></div>
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-brand-green rounded-full shadow-lg"></div>
-                  <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-brand-orange rounded-full shadow-lg"></div>
-                  <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-brand-green rounded-full shadow-lg"></div>
+                  {/* Top circle - Orange with molecule1 */}
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-brand-orange/60 rounded-full shadow-lg flex items-center justify-center">
+                    <img
+                      src="/hero/molecule1.png"
+                      alt="Chemical formula"
+                      className="w-24 h-24 object-contain"
+                    />
+                  </div>
+
+                  {/* Bottom circle - Green with molecule2 */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-24 h-24 bg-brand-green/60 rounded-full shadow-lg flex items-center justify-center">
+                    <img
+                      src="/hero/molecule2.png"
+                      alt="Chemical formula"
+                      className="w-24 h-24 object-contain"
+                    />
+                  </div>
+
+                  {/* Left circle - Orange with molecule3 */}
+                  <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-brand-orange/60 rounded-full shadow-lg flex items-center justify-center">
+                    <img
+                      src="/hero/molecule3.png"
+                      alt="Chemical formula"
+                      className="w-24 h-24 object-contain"
+                    />
+                  </div>
+
+                  {/* Right circle - Green with molecule4 */}
+                  <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-brand-green/60 rounded-full shadow-lg flex items-center justify-center">
+                    <img
+                      src="/hero/molecule4.png"
+                      alt="Chemical formula"
+                      className="w-24 h-24 object-contain"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* Additional floating elements */}

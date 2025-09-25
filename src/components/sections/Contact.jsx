@@ -183,14 +183,10 @@ const Contact = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300"
                     >
                       <option value="">Select a product category</option>
-                      <option value="construction">
-                        Construction Intermediates
-                      </option>
-                      <option value="agricultural">
-                        Agricultural Chemicals
-                      </option>
-                      <option value="industrial">Industrial Catalysts</option>
-                      <option value="research">Research Chemicals</option>
+                      <option value="industrial">Industrial Chemicals</option>
+                      <option value="agricultural">Agricultural Chemicals</option>
+                      <option value="construction">Construction Chemicals</option>
+                      <option value="pharmaceutical">Pharmaceutical Chemicals</option>
                       <option value="custom">Custom Synthesis</option>
                     </motion.select>
                   </div>
@@ -224,24 +220,21 @@ const Contact = () => {
             {/* Contact Information */}
             <motion.div
               variants={itemVariants}
-              className="lg:col-span-2 space-y-6"
+              className="lg:col-span-2"
             >
-              {/* Contact Cards */}
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ x: 5 }}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div
-                        className={`w-12 h-12 bg-${info.color}/10 rounded-lg flex items-center justify-center flex-shrink-0`}
-                      >
+              <div className="bg-white rounded-2xl shadow-xl p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                  Contact Information
+                </h3>
+
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <div key={index} className="flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                      <div className={`w-12 h-12 bg-${info.color}/10 rounded-lg flex items-center justify-center flex-shrink-0`}>
                         <info.icon className={`w-6 h-6 text-${info.color}`} />
                       </div>
-                      <div className="space-y-1">
-                        <h4 className="font-semibold text-gray-900">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">
                           {info.title}
                         </h4>
                         <p className="text-gray-700 font-medium">
@@ -252,8 +245,8 @@ const Contact = () => {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {/* Quick Actions */}
@@ -346,7 +339,7 @@ const Contact = () => {
           </motion.div> */}
 
           {/* CTA Section */}
-          {/* <motion.div 
+          {/* <motion.div
             variants={itemVariants}
             className="bg-white rounded-2xl p-12 text-center shadow-xl"
           >

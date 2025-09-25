@@ -46,11 +46,11 @@ const Products = () => {
       id: 1,
       title: "Industrial Chemicals",
       description:
-        "Advanced catalytic solutions for manufacturing and chemical processing.",
+        "Advanced catalytic solutions for manufacturing and chemical processing across various industries. ",
       icon: Factory,
       color: "brand-orange",
       image: "/product_img/Industrial Catalysts.jpg",
-      features: ["Enhanced Efficiency", "Long-lasting", "Cost-Effective"],
+      features: ["Long-lasting", "Cost-Effective", "Enhanced Efficiency"],
       stats: { industries: "25+", efficiency: "40%+" },
     },
     {
@@ -72,7 +72,7 @@ const Products = () => {
       icon: Building2,
       color: "brand-blue",
       image: "/product_img/Research Chemicals.png",
-      features: ["Weather Resistant", "High Strength", "Quick Setting"],
+      features: ["High Strength", "Quick Setting", "Weather Resistant"],
       stats: { projects: "500+", structures: "1000+" },
     },
     {
@@ -266,7 +266,7 @@ const Products = () => {
                       whileHover={{ x: 5 }}
                       className="group/btn inline-flex items-center text-brand-blue font-semibold hover:text-brand-orange transition-colors"
                     >
-                      Learn More
+                      Reach Us
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </motion.button>
                   </div>
@@ -282,8 +282,9 @@ const Products = () => {
                 Professional <span className="text-black">Services</span>
               </h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Beyond products, we also offer services to support your chemical
-                needs from conceptualization to commercialization.
+                We also offer services to support your chemical needs from{" "}
+                <br />
+                <span>conceptualization to commercialization.</span>
               </p>
             </div>
 
