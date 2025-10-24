@@ -38,15 +38,17 @@ const Footer = () => {
       { name: "About Us", href: "#about" },
       { name: "Contact Us", href: "#contact" },
       { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
     ],
-    products: [
+    productsCol1: [
       { name: "Industrial", href: "#products" },
       { name: "Agricultural", href: "#products" },
       { name: "Construction", href: "#products" },
-      { name: "Pharmaceutical", href: "#products" },
-      { name: "Customized Chemicals", href: "#products" },
+    ],
+    productsCol2: [
+      { name: "Cosmetics", href: "#products" },
+      { name: "Nutraceuticals", href: "#products" },
+      { name: "Pharmaceuticals", href: "#products" },
+      // { name: "Customized Chemicals", href: "#products" },
     ],
   };
 
@@ -74,7 +76,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer */}
-        <div className="py-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2 lg:col-span-1 space-y-4">
             <motion.div
@@ -87,54 +89,98 @@ const Footer = () => {
                 <img
                   src="/images/COZ_CHEM.png"
                   alt="COZ CHEM Logo"
-                  className="h-10 w-auto max-w-48"
+                  className="h-12 w-auto"
                 />
               </div>
 
-              <p className="text-gray-300 leading-relaxed font-bold mb-6">
+              <p className="text-gray-300 tracking-wide font-bold mb-6 whitespace-nowrap">
                 CLUB of Chemical Producers
               </p>
             </motion.div>
           </div>
 
           {/* Links Sections */}
-          {Object.entries(footerLinks).map(([section, links], sectionIndex) => (
-            <motion.div
-              key={section}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <h3 className="text-lg font-semibold text-white capitalize mb-4">
-                {section === "company" ? "Company" : "Products"}
+          {/* Company Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold text-white capitalize mb-4">
+              Company
+            </h3>
+            <ul className="space-y-2">
+              {footerLinks.company.map((link, linkIndex) => (
+                <li key={linkIndex}>
+                  {link.href === "#" ? (
+                    <motion.a
+                      href={link.href}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1"
+                    >
+                      {link.name}
+                    </motion.a>
+                  ) : (
+                    <motion.button
+                      onClick={() => scrollToSection(link.href)}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
+                    >
+                      {link.name}
+                    </motion.button>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Products Section - Two Columns Grouped */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="space-y-4 lg:col-span-2"
+          >
+            <div className="mb-4 text-center -ml-32">
+              <h3 className="text-lg font-semibold text-white capitalize">
+                Products
               </h3>
+            </div>
+            <div className="grid grid-cols-2 gap-x-4">
+              {/* Products Column 1 */}
               <ul className="space-y-2">
-                {links.map((link, linkIndex) => (
+                {footerLinks.productsCol1.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    {link.href === "#" ? (
-                      <motion.a
-                        href={link.href}
-                        whileHover={{ x: 5 }}
-                        className="text-gray-400 hover:text-white transition-colors duration-200 block py-1"
-                      >
-                        {link.name}
-                      </motion.a>
-                    ) : (
-                      <motion.button
-                        onClick={() => scrollToSection(link.href)}
-                        whileHover={{ x: 5 }}
-                        className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
-                      >
-                        {link.name}
-                      </motion.button>
-                    )}
+                    <motion.button
+                      onClick={() => scrollToSection(link.href)}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
+                    >
+                      {link.name}
+                    </motion.button>
                   </li>
                 ))}
               </ul>
-            </motion.div>
-          ))}
+
+              {/* Products Column 2 */}
+              <ul className="space-y-2">
+                {footerLinks.productsCol2.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <motion.button
+                      onClick={() => scrollToSection(link.href)}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
+                    >
+                      {link.name}
+                    </motion.button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
 
           {/* Certifications Section */}
           <motion.div
@@ -197,6 +243,27 @@ const Footer = () => {
                 Serving 50+ Countries
               </span>
             </div>
+            {/* Terms of Service */}
+            <motion.a
+              href="#"
+              whileHover={{ x: -5 }}
+              className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+            >
+              Terms of Service
+            </motion.a>
+          </div>
+        </motion.div>
+
+        {/* Bottom Footer */}
+        <div className="py-6 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+              <p className="text-gray-400 text-sm">
+                © 2025 COZ CHEM. All rights reserved.
+              </p>
+            </div>
+
+            {/* A COZ Club Logo Company */}
             <div className="flex items-center space-x-2">
               <span className="text-white text-2xl font-bold">A</span>
               <motion.a
@@ -214,27 +281,6 @@ const Footer = () => {
               </motion.a>
               <span className="text-white text-2xl font-bold">Company</span>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Bottom Footer */}
-        <div className="py-6 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-              <p className="text-gray-400 text-sm">
-                © 2025 COZ CHEM. All rights reserved.
-              </p>
-            </div>
-
-            {/* Back to Top */}
-            <motion.button
-              onClick={scrollToTop}
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-10 h-10 bg-brand-orange rounded-lg flex items-center justify-center text-white hover:bg-orange-600 transition-colors duration-300"
-            >
-              <ArrowUp className="w-5 h-5" />
-            </motion.button>
           </div>
         </div>
       </div>

@@ -48,7 +48,7 @@ const Hero = () => {
           >
             <motion.div variants={itemVariants} className="space-y-2">
               <div className="inline-flex items-center px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-medium">
-                <span>Trading Specialty Chemicals</span>
+                <span>Delivering Chemicals Globally</span>
                 <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </motion.div>
@@ -61,9 +61,9 @@ const Hero = () => {
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-                Delivering innovative specialty chemicals that drive progress
-                across industries. From industrial to agricultural, construction
-                to pharmaceutical. We power the future with precision chemistry.
+                Delivering innovative chemicals that drive progress across
+                industries. From industrial to agricultural, construction to
+                pharmaceutical. We power the future with precision chemistry.
               </p>
             </motion.div>
 
@@ -134,7 +134,10 @@ const Hero = () => {
                       width="150"
                       height="150"
                       className="object-contain bg-transparent"
-                      style={{ backgroundColor: 'transparent', mixBlendMode: 'multiply' }}
+                      style={{
+                        backgroundColor: "transparent",
+                        mixBlendMode: "multiply",
+                      }}
                     />
                   </div>
                 </div>

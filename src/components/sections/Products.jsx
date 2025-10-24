@@ -13,6 +13,8 @@ import {
   Shield,
   Zap,
   Building2,
+  Heart,
+  Sparkles,
 } from "lucide-react";
 
 const Products = () => {
@@ -86,6 +88,28 @@ const Products = () => {
       features: ["FDA Compliant", "USP Grade", "Batch Certification"],
       stats: { pharma: "50+", apis: "200+" },
     },
+    {
+      id: 5,
+      title: "Nutraceuticals",
+      description:
+        "Premium health and wellness compounds including dietary supplements.",
+      icon: Heart,
+      color: "brand-red",
+      image: "/product_img/nutracteutical.png",
+      features: ["GMP Certified", "Natural Sources", "Health Benefits"],
+      stats: { products: "100+", markets: "15+" },
+    },
+    {
+      id: 6,
+      title: "Cosmetics",
+      description:
+        "Beauty and personal care ingredients for skincare, haircare, and cosmetic formulations.",
+      icon: Sparkles,
+      color: "brand-pink",
+      image: "/product_img/cosmetics.png",
+      features: ["Skin Safe", "Cruelty Free", "Premium Quality"],
+      stats: { brands: "80+", formulations: "300+" },
+    },
   ];
 
   const services = [
@@ -153,16 +177,16 @@ const Products = () => {
               Comprehensive Chemical Portfolio
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              From industrial to agricultural and construction to
-              pharmaceutical, we provide best-in-the-class chemical products and
-              services that drive innovation and growth.
+              From industrial to agricultural, construction to pharmaceuticals
+              and nutraceuticals to cosmetics, we provide best-in-the-class
+              chemical products and services that drive innovation and growth.
             </p>
           </motion.div>
 
           {/* Products Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid md:grid-cols-2 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {products.map((product, index) => (
               <motion.div
@@ -279,7 +303,7 @@ const Products = () => {
           <motion.div variants={itemVariants} className="space-y-12">
             <div className="text-center">
               <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Professional <span className="text-black">Services</span>
+                Customized <span className="text-black">Chemicals</span>
               </h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 We also offer services to support your chemical needs from{" "}

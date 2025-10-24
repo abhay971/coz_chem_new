@@ -146,7 +146,8 @@ const About = () => {
                 <p className="text-lg text-gray-800 leading-relaxed">
                   We specialize in developing custom chemicals that meet the
                   unique needs of our clients across industrial, agricultural,
-                  construction and pharmaceutical sectors to name a few.
+                  construction, pharmaceuticals, nutraceuticals and cosmetics
+                  sectors to name a few.
                 </p>
 
                 <div className="space-y-4">
@@ -179,8 +180,9 @@ const About = () => {
                 <p className="text-gray-700 leading-relaxed">
                   Our Chemicals empower companies worldwide, driving
                   breakthrough innovations across the industrial, agricultural,
-                  construction and pharmaceutical sectors with cutting edge
-                  technology and sustainable solutions.
+                  construction, pharmaceuticals, nutraceuticals and cosmetics
+                  sectors with cutting edge technology and sustainable
+                  solutions.
                 </p>
               </motion.div>
             </motion.div>

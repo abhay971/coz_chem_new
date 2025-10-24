@@ -13,6 +13,7 @@ import {
   Shield,
   Award,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -42,6 +43,20 @@ const Contact = () => {
 
   const contactInfo = [
     {
+      icon: FaWhatsapp,
+      title: "WhatsApp",
+      primary: "+91 92741 66689",
+      secondary: "Chat with us instantly",
+      color: "brand-green",
+    },
+    {
+      icon: Phone,
+      title: "Call Us",
+      primary: "+91 92741 66689",
+      // secondary: "+1 (555) 987-6543",
+      color: "brand-orange",
+    },
+    {
       icon: Mail,
       title: "Email Us",
       primary: "hello@cozchem.com",
@@ -49,24 +64,17 @@ const Contact = () => {
       color: "brand-blue",
     },
     {
-      icon: Phone,
-      title: "Call Us",
-      primary: "+1 (555) 123-4567",
-      secondary: "+1 (555) 987-6543",
-      color: "brand-orange",
-    },
-    {
       icon: MapPin,
       title: "Visit Us",
-      primary: "123 Chemical Park Drive",
-      secondary: "Innovation City, IC 12345",
+      primary: "5 Laxmi Society,",
+      secondary: "O.P. Road, Vadodara-390007, Gujarat, India.",
       color: "brand-green",
     },
     {
       icon: Clock,
       title: "Business Hours",
-      primary: "Mon - Fri: 8:00 AM - 6:00 PM",
-      secondary: "Emergency Support 24/7",
+      primary: "Always Available",
+      // secondary: "Emergency Support 24/7",
       color: "brand-blue",
     },
   ];
@@ -117,12 +125,11 @@ const Contact = () => {
             variants={itemVariants}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-medium mb-4">
+            {/* <div className="inline-flex items-center px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-medium mb-4">
               Get In Touch
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Start Your
-              <span className="text-black"> Chemical Journey?</span>
+              Let Chemistry meet Commerce
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               Whether you need custom synthesis, bulk chemicals, or technical
@@ -141,8 +148,7 @@ const Contact = () => {
                     Send us a Message
                   </h3>
                   <p className="text-gray-600">
-                    Fill out the form below and we'll get back to you within 24
-                    hours.
+                    Fill out the form below and we'll get back to you.
                   </p>
                 </div>
 
@@ -183,11 +189,13 @@ const Contact = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300"
                     >
                       <option value="">Select a product category</option>
-                      <option value="industrial">Industrial Chemicals</option>
-                      <option value="agricultural">Agricultural Chemicals</option>
-                      <option value="construction">Construction Chemicals</option>
-                      <option value="pharmaceutical">Pharmaceutical Chemicals</option>
-                      <option value="custom">Custom Synthesis</option>
+                      <option value="industrial">Industrial</option>
+                      <option value="cosmetics">Cosmetics</option>
+                      <option value="agricultural">Agricultural</option>
+                      <option value="construction">Construction</option>
+                      <option value="nutraceuticals">Nutraceuticals</option>
+                      <option value="pharmaceutical">Pharmaceutical</option>
+                      <option value="custom">Custom Chemicals</option>
                     </motion.select>
                   </div>
 
@@ -218,10 +226,7 @@ const Contact = () => {
             </motion.div>
 
             {/* Contact Information */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:col-span-2"
-            >
+            <motion.div variants={itemVariants} className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-8">
                   Contact Information
@@ -229,8 +234,13 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-                      <div className={`w-12 h-12 bg-${info.color}/10 rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    <div
+                      key={index}
+                      className="flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      <div
+                        className={`w-12 h-12 bg-${info.color}/10 rounded-lg flex items-center justify-center flex-shrink-0`}
+                      >
                         <info.icon className={`w-6 h-6 text-${info.color}`} />
                       </div>
                       <div>

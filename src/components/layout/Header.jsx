@@ -39,8 +39,10 @@ const Header = () => {
 
   const productCategories = [
     { name: "Industrial", href: "#products" },
+    { name: "Cosmetics", href: "#products" },
     { name: "Agricultural", href: "#products" },
     { name: "Construction", href: "#products" },
+    { name: "Nutraceuticals", href: "#products" },
     { name: "Pharmaceutical", href: "#products" },
     { name: "Customized Chemicals", href: "#products" },
   ];
@@ -64,7 +66,7 @@ const Header = () => {
                 alt="COZ CHEM Logo"
                 className="h-12 w-auto"
               />
-              <span className="text-sm text-gray-600 mt-1 font-medium tracking-wide">
+              <span className="font-bold text-gray-900 mt-1 tracking-wide">
                 CLUB of Chemical Producers
               </span>
             </div>
