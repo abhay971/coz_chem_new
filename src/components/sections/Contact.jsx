@@ -46,7 +46,7 @@ const Contact = () => {
       icon: FaWhatsapp,
       title: "WhatsApp",
       primary: "+91 92741 66689",
-      secondary: "Chat with us instantly",
+      // secondary: "Chat with us instantly",
       color: "brand-green",
     },
     {
@@ -59,8 +59,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      primary: "hello@cozchem.com",
-      secondary: "support@cozchem.com",
+      primary: "contactcozchem@gmail.com",
+      // secondary: "support@cozchem.com",
       color: "brand-blue",
     },
     {

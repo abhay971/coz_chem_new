@@ -79,14 +79,14 @@ const Products = () => {
     },
     {
       id: 4,
-      title: "Pharmaceutical Chemicals",
+      title: "Cosmetics",
       description:
-        "High-grade pharmaceutical intermediates and API compounds for drug manufacturing.",
-      icon: Pill,
-      color: "brand-purple",
-      image: "/product_img/Pharmaceutical Intermediates.jpg",
-      features: ["FDA Compliant", "USP Grade", "Batch Certification"],
-      stats: { pharma: "50+", apis: "200+" },
+        "Beauty and personal care ingredients for skincare, haircare, and cosmetic formulations.",
+      icon: Sparkles,
+      color: "brand-pink",
+      image: "/product_img/cosmetics.png",
+      features: ["Skin Safe", "Cruelty Free", "Premium Quality"],
+      stats: { brands: "80+", formulations: "300+" },
     },
     {
       id: 5,
@@ -99,16 +99,17 @@ const Products = () => {
       features: ["GMP Certified", "Natural Sources", "Health Benefits"],
       stats: { products: "100+", markets: "15+" },
     },
+
     {
       id: 6,
-      title: "Cosmetics",
+      title: "Pharmaceuticals",
       description:
-        "Beauty and personal care ingredients for skincare, haircare, and cosmetic formulations.",
-      icon: Sparkles,
-      color: "brand-pink",
-      image: "/product_img/cosmetics.png",
-      features: ["Skin Safe", "Cruelty Free", "Premium Quality"],
-      stats: { brands: "80+", formulations: "300+" },
+        "High-grade pharmaceutical intermediates and API compounds for drug manufacturing.",
+      icon: Pill,
+      color: "brand-purple",
+      image: "/product_img/Pharmaceutical Intermediates.jpg",
+      features: ["FDA Compliant", "USP Grade", "Batch Certification"],
+      stats: { pharma: "50+", apis: "200+" },
     },
   ];
 

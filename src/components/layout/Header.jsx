@@ -43,7 +43,7 @@ const Header = () => {
     { name: "Agricultural", href: "#products" },
     { name: "Construction", href: "#products" },
     { name: "Nutraceuticals", href: "#products" },
-    { name: "Pharmaceutical", href: "#products" },
+    { name: "Pharmaceuticals", href: "#products" },
     { name: "Customized Chemicals", href: "#products" },
   ];
 
