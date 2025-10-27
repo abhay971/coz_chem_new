@@ -37,7 +37,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    { name: "About Us", href: "#about" },
     { name: "Products", href: "#products", hasDropdown: true },
     { name: "Features", href: "#features" },
     { name: "Contact", href: "#contact" },
