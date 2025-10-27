@@ -194,8 +194,8 @@ const Contact = () => {
                       <option value="agricultural">Agricultural</option>
                       <option value="construction">Construction</option>
                       <option value="nutraceuticals">Nutraceuticals</option>
-                      <option value="pharmaceutical">Pharmaceutical</option>
-                      <option value="custom">Custom Chemicals</option>
+                      <option value="pharmaceutical">Pharmaceuticals</option>
+                      <option value="custom">Customized Chemicals</option>
                     </motion.select>
                   </div>
 

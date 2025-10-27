@@ -13,7 +13,10 @@ const Header = () => {
       const element = document.getElementById(sectionId.replace("#", ""));
       if (element) {
         const headerHeight = 80; // Account for fixed header
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        const elementPosition =
+          element.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight;
 
         window.scrollTo({
           top: elementPosition,
@@ -56,7 +59,9 @@ const Header = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isOpen ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white/90 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none"
+        scrolled || isOpen
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-white/90 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,11 +86,11 @@ const Header = () => {
               <div key={item.name} className="relative group">
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className="flex items-center text-gray-700 hover:text-brand-orange transition-colors duration-200 font-medium"
+                  className="flex items-center text-gray-800 hover:text-brand-orange transition-colors duration-200 font-bold text-lg px-2 py-2"
                 >
                   {item.name}
                   {item.hasDropdown && (
-                    <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
+                    <ChevronDown className="w-5 h-5 ml-1 transition-transform group-hover:rotate-180" />
                   )}
                 </button>
 
@@ -142,7 +147,7 @@ const Header = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-200 font-medium"
+                className="block w-full text-left px-4 py-3 text-gray-700 hover:text-brand-orange transition-colors duration-200 font-semibold text-lg"
               >
                 {item.name}
               </a>
