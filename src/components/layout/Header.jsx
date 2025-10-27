@@ -7,17 +7,20 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId.replace("#", ""));
-    if (element) {
-      const headerHeight = 80; // Account for fixed header
-      const elementPosition = element.offsetTop - headerHeight;
+    setIsOpen(false); // Close mobile menu first
 
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
-    }
-    setIsOpen(false); // Close mobile menu if open
+    setTimeout(() => {
+      const element = document.getElementById(sectionId.replace("#", ""));
+      if (element) {
+        const headerHeight = 80; // Account for fixed header
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100); // Small delay to allow menu to close
   };
 
   useEffect(() => {
@@ -49,11 +52,11 @@ const Header = () => {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled || isOpen ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white/90 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,15 +115,15 @@ const Header = () => {
             className="hidden md:block bg-brand-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-blue transition-colors duration-200"
           >
             Get Quote
-          </motion.button>
+          </motion.button> */}
 
-      
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-gray-700 hover:text-brand-orange"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button> */}
+          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -132,13 +135,17 @@ const Header = () => {
         >
           <div className="py-4 space-y-4">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-200"
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <div className="px-4 pt-2">
               <button className="w-full bg-brand-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">

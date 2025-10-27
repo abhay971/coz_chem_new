@@ -76,9 +76,9 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer */}
-        <div className="py-12 grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Company Info */}
-          <div className="md:col-span-2 lg:col-span-1 space-y-4">
+        <div className="py-8 sm:py-10 md:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-6 sm:gap-8">
+          {/* Company Info - Logo on Left */}
+          <div className="space-y-4 sm:col-span-2 lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -89,17 +89,16 @@ const Footer = () => {
                 <img
                   src="/images/COZ_CHEM.png"
                   alt="COZ CHEM Logo"
-                  className="h-12 w-auto"
+                  className="h-10 sm:h-12 w-auto"
                 />
               </div>
 
-              <p className="text-gray-300 tracking-wide font-bold mb-6 whitespace-nowrap">
+              <p className="text-gray-300 tracking-wide font-bold mb-6 text-sm sm:text-base">
                 CLUB of Chemical Producers
               </p>
             </motion.div>
           </div>
 
-          {/* Links Sections */}
           {/* Company Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -108,7 +107,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-lg font-semibold text-white capitalize mb-4">
+            <h3 className="text-base sm:text-lg font-semibold text-white capitalize mb-3 sm:mb-4">
               Company
             </h3>
             <ul className="space-y-2">
@@ -118,7 +117,7 @@ const Footer = () => {
                     <motion.a
                       href={link.href}
                       whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-sm sm:text-base"
                     >
                       {link.name}
                     </motion.a>
@@ -126,7 +125,7 @@ const Footer = () => {
                     <motion.button
                       onClick={() => scrollToSection(link.href)}
                       whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full text-sm sm:text-base"
                     >
                       {link.name}
                     </motion.button>
@@ -136,20 +135,18 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Products Section - Two Columns Grouped */}
+          {/* Products Section - Two Columns with Less Gap */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="space-y-4 lg:col-span-2"
+            className="space-y-4 sm:col-span-2 lg:col-span-2 flex flex-col items-start lg:items-center"
           >
-            <div className="mb-4 text-center -ml-32">
-              <h3 className="text-lg font-semibold text-white capitalize">
-                Products
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-x-4">
+            <h3 className="text-base sm:text-lg font-semibold text-white capitalize mb-3 sm:mb-4 lg:-ml-12">
+              Products
+            </h3>
+            <div className="grid grid-cols-2 gap-x-2 sm:gap-x-3 w-full lg:w-auto">
               {/* Products Column 1 */}
               <ul className="space-y-2">
                 {footerLinks.productsCol1.map((link, linkIndex) => (
@@ -157,7 +154,7 @@ const Footer = () => {
                     <motion.button
                       onClick={() => scrollToSection(link.href)}
                       whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full text-sm sm:text-base"
                     >
                       {link.name}
                     </motion.button>
@@ -172,7 +169,7 @@ const Footer = () => {
                     <motion.button
                       onClick={() => scrollToSection(link.href)}
                       whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-left w-full text-sm sm:text-base"
                     >
                       {link.name}
                     </motion.button>
@@ -188,23 +185,21 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 sm:col-span-2 lg:col-span-2 flex flex-col items-start lg:items-center"
           >
-            <div className="text-center mb-4">
-              <h3 className="text-lg font-semibold text-white capitalize">
-                Certifications
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-x-4">
+            <h3 className="text-base sm:text-lg font-semibold text-white capitalize mb-3 sm:mb-4">
+              Certifications
+            </h3>
+            <div className="grid grid-cols-2 gap-x-3 sm:gap-x-4 w-full lg:w-auto">
               <ul className="space-y-2">
                 {certifications.slice(0, 5).map((cert, index) => (
                   <li key={index}>
                     <motion.a
                       href="#"
                       whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 flex items-center space-x-2"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 flex items-center space-x-2 text-sm sm:text-base"
                     >
-                      <cert.icon className="w-4 h-4 text-brand-green flex-shrink-0" />
+                      <cert.icon className="w-3 h-3 sm:w-4 sm:h-4 text-brand-green flex-shrink-0" />
                       <span>{cert.text}</span>
                     </motion.a>
                   </li>
@@ -216,9 +211,9 @@ const Footer = () => {
                     <motion.a
                       href="#"
                       whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 flex items-center space-x-2"
+                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 flex items-center space-x-2 text-sm sm:text-base"
                     >
-                      <cert.icon className="w-4 h-4 text-brand-green flex-shrink-0" />
+                      <cert.icon className="w-3 h-3 sm:w-4 sm:h-4 text-brand-green flex-shrink-0" />
                       <span>{cert.text}</span>
                     </motion.a>
                   </li>
@@ -234,12 +229,12 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="py-6 border-t border-gray-800"
+          className="py-4 sm:py-6 border-t border-gray-800"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 gap-4">
             <div className="flex items-center space-x-2">
-              <Globe className="w-4 h-4 text-brand-blue" />
-              <span className="text-gray-300 text-sm">
+              <Globe className="w-3 h-3 sm:w-4 sm:h-4 text-brand-blue" />
+              <span className="text-gray-300 text-xs sm:text-sm">
                 Serving 50+ Countries
               </span>
             </div>
@@ -247,7 +242,7 @@ const Footer = () => {
             <motion.a
               href="#"
               whileHover={{ x: -5 }}
-              className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+              className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm"
             >
               Terms of Service
             </motion.a>
@@ -255,17 +250,17 @@ const Footer = () => {
         </motion.div>
 
         {/* Bottom Footer */}
-        <div className="py-6 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="py-4 sm:py-6 border-t border-gray-800">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 gap-4">
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
                 © 2025 COZ CHEM. All rights reserved.
               </p>
             </div>
 
             {/* A COZ Club Logo Company */}
-            <div className="flex items-center space-x-2">
-              <span className="text-white text-2xl font-bold">A</span>
+            <div className="flex items-center space-x-1 sm:space-x-2">
+              <span className="text-white text-lg sm:text-xl md:text-2xl font-bold">A</span>
               <motion.a
                 href="https://www.cozclub.com"
                 target="_blank"
@@ -276,10 +271,10 @@ const Footer = () => {
                 <img
                   src="/images/coz_club.png"
                   alt="COZ Club Logo"
-                  className="h-8 w-auto"
+                  className="h-6 sm:h-7 md:h-8 w-auto"
                 />
               </motion.a>
-              <span className="text-white text-2xl font-bold">Company</span>
+              <span className="text-white text-lg sm:text-xl md:text-2xl font-bold">Company</span>
             </div>
           </div>
         </div>

@@ -46,6 +46,40 @@ const Products = () => {
   const products = [
     {
       id: 1,
+      title: "Cosmetics",
+      description:
+        "Beauty and personal care ingredients for skincare, haircare, and cosmetic formulations.",
+      icon: Sparkles,
+      color: "brand-orange",
+      image: "/product_img/cosmetics.png",
+      features: ["Skin Safe", "Cruelty Free", "Premium Quality"],
+      stats: { brands: "80+", formulations: "300+" },
+    },
+    {
+      id: 2,
+      title: "Nutraceuticals",
+      description:
+        "Premium health and wellness compounds including dietary supplements.",
+      icon: Heart,
+      color: "brand-blue",
+      image: "/product_img/nutracteutical.png",
+      features: ["GMP Certified", "Natural Sources", "Health Benefits"],
+      stats: { products: "100+", markets: "15+" },
+    },
+
+    {
+      id: 3,
+      title: "Pharmaceuticals",
+      description:
+        "High-grade pharmaceutical intermediates and API compounds for drug manufacturing.",
+      icon: Pill,
+      color: "brand-green",
+      image: "/product_img/Pharmaceutical Intermediates.jpg",
+      features: ["FDA Compliant", "USP Grade", "Batch Certification"],
+      stats: { pharma: "50+", apis: "200+" },
+    },
+    {
+      id: 4,
       title: "Industrial Chemicals",
       description:
         "Advanced catalytic solutions for manufacturing and chemical processing across various industries. ",
@@ -56,60 +90,26 @@ const Products = () => {
       stats: { industries: "25+", efficiency: "40%+" },
     },
     {
-      id: 2,
+      id: 5,
       title: "Agricultural Chemicals",
       description:
         "Innovative crop protection and nutrition solutions for sustainable agriculture.",
       icon: Leaf,
-      color: "brand-green",
+      color: "brand-blue",
       image: "/product_img/Agricultural Chemicals.jpeg",
       features: ["Eco-Friendly", "High Efficacy", "Crop Specific"],
       stats: { coverage: "1M+ acres", products: "50+" },
     },
     {
-      id: 3,
+      id: 6,
       title: "Construction Chemicals",
       description:
         "Durable concrete additives, sealants, and specialty chemicals for construction projects.",
       icon: Building2,
-      color: "brand-blue",
+      color: "brand-green",
       image: "/product_img/Research Chemicals.png",
       features: ["High Strength", "Quick Setting", "Weather Resistant"],
       stats: { projects: "500+", structures: "1000+" },
-    },
-    {
-      id: 4,
-      title: "Cosmetics",
-      description:
-        "Beauty and personal care ingredients for skincare, haircare, and cosmetic formulations.",
-      icon: Sparkles,
-      color: "brand-pink",
-      image: "/product_img/cosmetics.png",
-      features: ["Skin Safe", "Cruelty Free", "Premium Quality"],
-      stats: { brands: "80+", formulations: "300+" },
-    },
-    {
-      id: 5,
-      title: "Nutraceuticals",
-      description:
-        "Premium health and wellness compounds including dietary supplements.",
-      icon: Heart,
-      color: "brand-red",
-      image: "/product_img/nutracteutical.png",
-      features: ["GMP Certified", "Natural Sources", "Health Benefits"],
-      stats: { products: "100+", markets: "15+" },
-    },
-
-    {
-      id: 6,
-      title: "Pharmaceuticals",
-      description:
-        "High-grade pharmaceutical intermediates and API compounds for drug manufacturing.",
-      icon: Pill,
-      color: "brand-purple",
-      image: "/product_img/Pharmaceutical Intermediates.jpg",
-      features: ["FDA Compliant", "USP Grade", "Batch Certification"],
-      stats: { pharma: "50+", apis: "200+" },
     },
   ];
 
