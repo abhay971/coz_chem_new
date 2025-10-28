@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -20,6 +20,82 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    productInterest: "",
+    message: "",
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    success: false,
+    error: null,
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ loading: true, success: false, error: null });
+
+    try {
+      const response = await fetch("http://localhost:3001/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setFormStatus({
+          loading: false,
+          success: true,
+          error: null,
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          productInterest: "",
+          message: "",
+        });
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({ loading: false, success: false, error: null });
+        }, 5000);
+      } else {
+        setFormStatus({
+          loading: false,
+          success: false,
+          error: result.error || "Failed to submit form. Please try again.",
+        });
+      }
+    } catch (error) {
+      setFormStatus({
+        loading: false,
+        success: false,
+        error: "Network error. Please check your connection and try again.",
+      });
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,7 +183,7 @@ const Contact = () => {
     { name: "name", label: "Full Name", type: "text", required: true },
     { name: "email", label: "Email Address", type: "email", required: true },
     { name: "company", label: "Company Name", type: "text", required: true },
-    { name: "phone", label: "Phone Number", type: "tel", required: false },
+    { name: "phone", label: "Phone Number", type: "tel", required: true },
   ];
 
   return (
@@ -152,7 +228,34 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Success Message */}
+                  {formStatus.success && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg"
+                    >
+                      <p className="font-medium">Success!</p>
+                      <p>
+                        Your message has been sent successfully. We'll get back
+                        to you soon!
+                      </p>
+                    </motion.div>
+                  )}
+
+                  {/* Error Message */}
+                  {formStatus.error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg"
+                    >
+                      <p className="font-medium">Error</p>
+                      <p>{formStatus.error}</p>
+                    </motion.div>
+                  )}
+
                   <div className="grid md:grid-cols-2 gap-6">
                     {formFields.map((field) => (
                       <div
@@ -172,8 +275,12 @@ const Contact = () => {
                         <motion.input
                           whileFocus={{ scale: 1.02 }}
                           type={field.type}
+                          name={field.name}
+                          value={formData[field.name]}
+                          onChange={handleChange}
                           required={field.required}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300"
+                          disabled={formStatus.loading}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300 disabled:bg-gray-100 disabled:cursor-not-allowed"
                           placeholder={`Enter your ${field.label.toLowerCase()}`}
                         />
                       </div>
@@ -182,11 +289,16 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Product Interest
+                      Product Interest <span className="text-brand-orange">*</span>
                     </label>
                     <motion.select
                       whileFocus={{ scale: 1.02 }}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300"
+                      name="productInterest"
+                      value={formData.productInterest}
+                      onChange={handleChange}
+                      required
+                      disabled={formStatus.loading}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300 disabled:bg-gray-100 disabled:cursor-not-allowed"
                     >
                       <option value="">Select a product category</option>
                       <option value="industrial">Industrial</option>
@@ -206,20 +318,34 @@ const Contact = () => {
                     <motion.textarea
                       whileFocus={{ scale: 1.02 }}
                       rows={6}
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300 resize-none"
+                      disabled={formStatus.loading}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300 resize-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                       placeholder="Tell us about your requirements, quantities, and any specific needs..."
                     ></motion.textarea>
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={{ scale: formStatus.loading ? 1 : 1.02 }}
+                    whileTap={{ scale: formStatus.loading ? 1 : 0.98 }}
                     type="submit"
-                    className="w-full bg-brand-orange text-white font-semibold py-4 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2"
+                    disabled={formStatus.loading}
+                    className="w-full bg-brand-orange text-white font-semibold py-4 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-5 h-5" />
-                    <span>Send Message</span>
+                    {formStatus.loading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </motion.button>
                 </form>
               </div>

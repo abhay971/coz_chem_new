@@ -1,29 +1,54 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (sectionId) => {
     setIsOpen(false); // Close mobile menu first
 
-    setTimeout(() => {
-      const element = document.getElementById(sectionId.replace("#", ""));
-      if (element) {
-        const headerHeight = 80; // Account for fixed header
-        const elementPosition =
-          element.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight;
+    // If not on home page, navigate to home first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId.replace("#", ""));
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition =
+            element.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
 
-        window.scrollTo({
-          top: elementPosition,
-          behavior: "smooth",
-        });
-      }
-    }, 100); // Small delay to allow menu to close
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
+    } else {
+      // Already on home page, just scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId.replace("#", ""));
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition =
+            element.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
   };
 
   useEffect(() => {
@@ -68,7 +93,19 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
-            <div className="flex flex-col items-start">
+            <button
+              onClick={() => {
+                if (location.pathname !== "/") {
+                  navigate("/");
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }, 300);
+                } else {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              className="flex flex-col items-start cursor-pointer"
+            >
               <img
                 src="/images/COZ_CHEM_BLACK.png"
                 alt="COZ CHEM Logo"
@@ -77,7 +114,7 @@ const Header = () => {
               <span className="font-bold text-gray-900 mt-1 tracking-wide">
                 CLUB of Chemical Producers
               </span>
-            </div>
+            </button>
           </motion.div>
 
           {/* Desktop Navigation */}

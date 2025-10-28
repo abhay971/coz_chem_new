@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -16,28 +17,50 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId.replace("#", ""));
-    if (element) {
-      const headerHeight = 80; // Account for fixed header
-      const elementPosition = element.offsetTop - headerHeight;
+    // If not on home page, navigate to home first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId.replace("#", ""));
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition = element.offsetTop - headerHeight;
 
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById(sectionId.replace("#", ""));
+      if (element) {
+        const headerHeight = 80;
+        const elementPosition = element.offsetTop - headerHeight;
+
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
   const footerLinks = {
     company: [
-      { name: "About Us", href: "#about" },
-      { name: "Contact Us", href: "#contact" },
-      { name: "Privacy Policy", href: "#" },
+      { name: "About Us", href: "#about", isRoute: false },
+      { name: "Contact Us", href: "#contact", isRoute: false },
+      { name: "Privacy Policy", href: "/privacy-policy", isRoute: true },
     ],
     productsCol1: [
       { name: "Industrial", href: "#products" },
@@ -85,17 +108,31 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center mb-2">
-                <img
-                  src="/images/COZ_CHEM.png"
-                  alt="COZ CHEM Logo"
-                  className="h-10 sm:h-12 w-auto"
-                />
-              </div>
+              <button
+                onClick={() => {
+                  if (location.pathname !== "/") {
+                    navigate("/");
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }, 300);
+                  } else {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className="flex flex-col items-start cursor-pointer text-left"
+              >
+                <div className="flex items-center mb-2">
+                  <img
+                    src="/images/COZ_CHEM.png"
+                    alt="COZ CHEM Logo"
+                    className="h-10 sm:h-12 w-auto"
+                  />
+                </div>
 
-              <p className="text-gray-300 tracking-wide font-bold mb-6 text-sm sm:text-base">
-                CLUB of Chemical Producers
-              </p>
+                <p className="text-gray-300 tracking-wide font-bold mb-6 text-sm sm:text-base">
+                  CLUB of Chemical Producers
+                </p>
+              </button>
             </motion.div>
           </div>
 
@@ -113,14 +150,15 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.company.map((link, linkIndex) => (
                 <li key={linkIndex}>
-                  {link.href === "#" ? (
-                    <motion.a
-                      href={link.href}
-                      whileHover={{ x: 5 }}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-sm sm:text-base"
-                    >
-                      {link.name}
-                    </motion.a>
+                  {link.isRoute ? (
+                    <Link to={link.href}>
+                      <motion.span
+                        whileHover={{ x: 5 }}
+                        className="text-gray-400 hover:text-white transition-colors duration-200 block py-1 text-sm sm:text-base cursor-pointer"
+                      >
+                        {link.name}
+                      </motion.span>
+                    </Link>
                   ) : (
                     <motion.button
                       onClick={() => scrollToSection(link.href)}
@@ -238,14 +276,15 @@ const Footer = () => {
                 Serving 50+ Countries
               </span>
             </div>
-            {/* Terms of Service */}
-            <motion.a
-              href="#"
-              whileHover={{ x: -5 }}
-              className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm"
-            >
-              Terms of Service
-            </motion.a>
+            {/* Terms of Use */}
+            <Link to="/terms-of-use">
+              <motion.span
+                whileHover={{ x: -5 }}
+                className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm cursor-pointer block"
+              >
+                Terms of Use
+              </motion.span>
+            </Link>
           </div>
         </motion.div>
 

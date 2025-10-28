@@ -1,23 +1,20 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Products from "./components/sections/Products";
-import Features from "./components/sections/Features";
-import Contact from "./components/sections/Contact";
+import HomePage from "./pages/HomePage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 function App() {
   return (
     <div className="min-h-screen">
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Products />
-        <Features />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+      </Routes>
       <Footer />
     </div>
   );
